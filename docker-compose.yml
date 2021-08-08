@@ -1,0 +1,21 @@
+version: '3'
+services: 
+    web:
+        environment: # windows bugfix
+            - CHOKIDAR_USEPOLLING=true
+        build:
+            context: . # specifying where we want all the files and folders for this image to be pulled from . means in same folders with docker-compose
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        volumes: 
+            - /app/node_modules
+            - .:/app  
+    tests:
+        build:
+            context: . # specifying where we want all the files and folders for this image to be pulled from . means in same folders with docker-compose
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /app/node_modules
+            - .:/app
+        command: ["npm", "run", "test"]          
