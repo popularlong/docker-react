@@ -10,5 +10,6 @@ RUN npm run build
 
 # Run phase
 FROM nginx
+EXPOSE 80
 # blow means we want to copy something from build phase 
 COPY --from=builder /app/build /usr/share/nginx/html
