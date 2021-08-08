@@ -9,3 +9,18 @@ script:
   - docker run -e CI=true lca/docker-react npm run test
 
 language: generic
+
+# deploy:
+#  provider: elasticbeanstalk # aws
+#  region: "us-west-2" # in URL will be found us-west-2
+#  app: "docker-react" # name app in aws
+#  env: "Docker-react-env"
+#  bucket_name: "elaticbeanstalk-us-west-2-xxxxxx" # s3 in aws : elaticbeanstalk-us-west-2-xxxxxx
+#  bucket_path: "docker-react"
+#  on:
+#    branch: master
+
+## Setting in AWS and Travis
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key:
+#    secure: "$AWS_SECRET_KEY"
